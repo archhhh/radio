@@ -6,7 +6,7 @@ let radio_quality = document.getElementById("radio-quality");
 let radio_current_track = document.getElementById("radio-current-track");
 let radio_current_show = document.getElementById("radio-current-show");
 let source = player.getElementsByTagName("source")[0];
-let current = "http://localhost:4000/radio/320";
+let current = "http://13.209.55.253:4000/radio/320";
 let radio_on = document.getElementById("radio-on");
 
     function checkRadioStatus(data){
@@ -81,18 +81,18 @@ let radio_on = document.getElementById("radio-on");
         });
     }
 
-    promise("http://localhost:4000/api/radioStatus").then((data) => {
+    promise("http://13.209.55.253:4000/api/radioStatus").then((data) => {
         checkRadioStatus(data);
         setInterval(() => {
-            promise("http://localhost:4000/api/radioStatus").then((data) => {
+            promise("http://13.209.55.253:4000/api/radioStatus").then((data) => {
                 checkRadioStatus(data);
             });
         }, 3000);
     });
-    promise("http://localhost:4000/api/radioMeta").then((data) => {
+    promise("http://13.209.55.253:4000/api/radioMeta").then((data) => {
         checkRadioMeta(data);
         setInterval(() => {
-            promise("http://localhost:4000/api/radioMeta").then((data) => {
+            promise("http://13.209.55.253:4000/api/radioMeta").then((data) => {
                 checkRadioMeta(data);
             });
         }, 3000);
@@ -102,10 +102,10 @@ let radio_on = document.getElementById("radio-on");
         if(radio_quality.innerText == "320")
         {
            radio_quality.innerText = "128";
-           current = "http://localhost:4000/radio/128";
+           current = "http://13.209.55.253:4000/radio/128";
         }else{
            radio_quality.innerText = "320";
-           current = "http://localhost:4000/radio/320";
+           current = "http://13.209.55.253:4000/radio/320";
         }
     });
     radio_volume.addEventListener("input", () => {

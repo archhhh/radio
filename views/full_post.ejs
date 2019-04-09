@@ -18,7 +18,7 @@
                         <%=newDate[2]%> <%=newDate[1]%> <%=newDate[3]%>
                         </h3>
                         <% for(let j = 0; j < post.tags.length; ++j){%>
-                            <a class="post-tag" href="/posts/tag/<%=post.tags[j]%>"><%=post.tags[j]%></a>
+                            <a class="post-tag" href="/posts/tag/<%=post.tags[j]%>" target="_blank"><%=post.tags[j]%></a>
                         <% } %>
                         <div class="post-short-description">
                                 <%- post.short_description %>
