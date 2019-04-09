@@ -1,0 +1,33 @@
+<% include header.ejs %>
+<% include radio.ejs %>
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+        <% if(errors !== false){%>
+            <% for(let i = 0; i < errors.length; ++i){%>
+                <% for(let key in errors[i]){%>
+                    <% if(key == "msg"){%>
+                        <p class="error"><%= errors[i][key] %></p>
+                    <% } %>
+                <% } %>
+            <% } %>
+        <% }else{%>
+            <p class="success"> User successfully created </p> 
+        <% } %>
+        <form method="POST" action="/auth/signup" id="signup-form">
+            <p class="signup">Signup</p>
+            <p id="signup-form-username">Username</p>
+            <p class="signup"><input type="text" name="username" id="signup-text-input"> </p>
+            <p id="signup-form-password">Password</p>
+            <p class="signup"><input type="password" name="password" id="signup-password-input"></p>
+            <p id="signup-form-confirm-password">Confirm Password</p>
+            <p  class="signup"><input type="password" name="confirmPassword" id="signup-confirm-password-input"></p>
+            <input type="submit" id="signup-submit-input" value="signup">
+        </form>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

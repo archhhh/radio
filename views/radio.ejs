@@ -1,0 +1,24 @@
+<div id="radio">
+    <audio id="player" preload="none">
+        <source src="http://localhost:4000/radio/320">
+    </audio>
+    <div class="wrapper">
+            <div>
+                <span id="radio-on">off</span>
+            </div>
+            <div>
+                <span id="radio-quality">320</span>
+                <input type="range" min="1" max="100" value="100" id="radio-volume">
+            </div>
+            <div>
+                <i class="fa fa-play-circle" id="radio-play-pause"></i>
+            </div>
+            <div class="info">
+                <p id="radio-current-show"></p>
+                <p id="radio-current-track"></p>
+            </div>
+            <div>
+                <span id="radio-chat"><i class="fa fa-comments"></i></span>
+            </div> 
+    </div>
+</div>

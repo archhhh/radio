@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Omejka </title> 
+    <link href="/assets/style/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <h1 id="logo"><a href="/" target="_blank">Ω omega</a></h1>
+            <i class="fas fa-chevron-down" id="dropdown-nav"></i>
+            <div id="nav" class="nav-closed">
+                <nav id="second-nav">
+                    <h2>Secondary Navigation</h2>
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-telegram"></i></a></li>
+                        <li>|</li>
+                        <% if(!user) { %>
+                            <li><a href="/auth/login" target="_blank">login</a></li>
+                            <li><a href="/auth/signup" target="_blank">signup</a></li>
+                        <%} else { %>
+                            <li><a href="" target="_blank"><%=user.username %></a></li>
+                            <li><a href="/auth/logout" target="_blank">logout</a></li>
+                        <% } %>
+                    </ul>
+                </nav>
+                <nav id="main-nav">
+                    <h2>Main Navigation</h2>
+                    <ul>
+                        <li><a href="/" target="_blank">home</a></li>
+                        <li><a href="/posts/" target="_blank">journal</a></li>
+                        <li><a href="/shows/" target="_blank">shows</a></li>
+                        <li><a href="/about" target="_blank">about</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>

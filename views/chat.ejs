@@ -1,0 +1,21 @@
+<div id="chat" class="chat-closed">
+    <div id="chat-header">
+        <span  id="chat-exit"><i class="fa fa-times-circle"></i></span>
+    </div>
+    <div id="chat-window">
+    </div>
+    <div id="chat-submit">
+        <% if(user) { %>
+            <textarea id="chat-submit-text"></textarea>
+            <i class="far fa-smile" id="chat-emote-button"></i>
+            <a id="chat-submit-button">Send</a>
+        <% } else { %>
+            <p>Please login first</p>
+        <% } %>
+    </div>
+    <div id="emotes" class="emotes-closed">
+        <% for(type in emotes){ %>
+            <img src=<%=emotes[type]%> class="emote" value="<%=type%>">
+        <% } %>
+    </div>
+</div>

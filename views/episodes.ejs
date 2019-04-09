@@ -1,0 +1,20 @@
+
+<% include header.ejs %> 
+<% include radio.ejs %>   
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+            <% if(err){ %>
+                <p class="error"> <%=err%> </p>
+            <% } else {%>
+                <% for(let i = allEpisodes.length-1; i >= 0; --i){ %>
+                    <iframe class="show-episode" width="100%" height="120" src="<%=allEpisodes[i]%>" frameborder="0"></iframe>
+                <% } %>
+            <% } %>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

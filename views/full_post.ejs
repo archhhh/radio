@@ -1,0 +1,38 @@
+
+<% include header.ejs %> 
+<% include radio.ejs %>   
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+        <% if(err){%>
+        <p class="error"><%=err%></p>
+        <% } else {%>
+        <article class="post">
+                        <h1 class="post-header"><%=post.header%></h1>
+                        <h3 class="post-date">
+                        <%
+                              let newDate = post.date;
+                              newDate.setTime(newDate.getTime()+9*60*60*1000);
+                              newDate = newDate.toDateString().split(" ");
+                        %>
+                        <%=newDate[2]%> <%=newDate[1]%> <%=newDate[3]%>
+                        </h3>
+                        <% for(let j = 0; j < post.tags.length; ++j){%>
+                            <a class="post-tag" href="/posts/tag/<%=post.tags[j]%>"><%=post.tags[j]%></a>
+                        <% } %>
+                        <div class="post-short-description">
+                                <%- post.short_description %>
+                        </div>
+                        <img src="<%=post.thumbnail%>" class="post-thumbnail">
+                        <div class="post-full-description">
+                                <%- post.full_description %>
+                        </div>
+        </article>
+        <% } %>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

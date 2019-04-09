@@ -1,0 +1,38 @@
+
+<% include header.ejs %> 
+<% include radio.ejs %>
+<% include schedule.ejs %>     
+<main>
+    <div class="wrapper">
+        <% if(err){ %>
+            <p class="error"> <%=err%> </p>
+        <% } else {%>
+            <% for(let i = 0; i < allPosts.length; ++i){%>
+                <article class="post">
+                    <h1><a href="/posts/<%=allPosts[i].id.toString()%>" class="post-header-link"><%= allPosts[i].header %></a></h1>
+                    <h3 class="post-date">
+                            <%
+                                let newDate = allPosts[i].date;
+                                newDate.setTime(newDate.getTime()+9*60*60*1000);
+                                newDate = newDate.toDateString().split(" ");
+                            %>
+                            <%=newDate[2]%> <%=newDate[1]%> <%=newDate[3]%>
+                    </h3>
+                    <% for(let j = 0; j < allPosts[i].tags.length; ++j){%>
+                    <a class="post-tag" href="/posts/tag/<%=allPosts[i].tags[j]%>"><%=allPosts[i].tags[j]%></a>
+                    <% } %>
+                    <div class="post-short-description">
+                        <%-allPosts[i].short_description%>
+                    </div>
+                    <img src="<%=allPosts[i].thumbnail%>" class="post-thumbnail">
+                    <a href="/posts/<%=allPosts[i].id.toString()%>" class="post-more" target="_blank">More</a>
+                </article>
+            <% } %>
+       <% } %>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

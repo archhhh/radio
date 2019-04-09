@@ -1,0 +1,56 @@
+
+<% include header.ejs %> 
+<% include radio.ejs %>   
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+            <% if(err){ %>
+                <p class="error"> <%=err%> </p>
+            <% } else {%>
+                <% for(let i = 0; i < allShows.length; ++i){%>
+                    <a href="/shows/<%=allShows[i].id.toString()%>" class="show-link">
+                            <article class="show">
+                                    <img src="<%=allShows[i].thumbnail%>" class="show-thumbnail">
+                                    <div class="show-contents">
+                                        <h2 class="show-name"><%=allShows[i].name%></h2>
+                                        <h3 class="show-hosts">Hosted by 
+                                            <% for(let j = 0; j < allShows[i].hosts.length; ++j){ %>
+                                                <%=allShows[i].hosts[j]%>
+                                                <% if(j != allShows[i].hosts.length-1) { %>
+                                                    <%=","%>
+                                                <% } %>
+                                            <% } %>
+                                        </h3>
+                                        <p class="show-description"><%=allShows[i].description%></p> 
+                                    </div>       
+                            </article>
+                    </a>
+                    <!--                    <a href="#" class="show-link">
+                            <article class="show">
+                                    <img src="/assets/images/img3.jpg" class="show-thumbnail">
+                                    <div class="show-contents">
+                                        <h2 class="show-name">A State Of Trance</h2>
+                                        <h3 class="show-hosts">Hosted by Armin van Buuren</h3>
+                                        <p class="show-description">Every week, Armin selects his favourite tunes of the A State of Trance radio show and puts them into his official Podcast. Expect a blend of the hottest in trance and progressive. Enjoy!</p> 
+                                    </div>       
+                                </article>
+                    </a>
+                    <a href="#" class="show-link">
+                            <article class="show">
+                                    <img src="/assets/images/img4.jpg" class="show-thumbnail">
+                                    <div class="show-contents">
+                                        <h2 class="show-name">Knifecast</h2>
+                                        <h3 class="show-hosts">Hosted by Knife Party</h3>
+                                        <p class="show-description">Rob and Gareth from Pendulum / Knife Party's podcast-ish type thing.</p> 
+                                    </div>       
+                            </article>
+                    </a> -->
+                <% } %>
+            <% } %>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

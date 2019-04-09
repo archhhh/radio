@@ -1,0 +1,23 @@
+<% include header.ejs %>
+<% include radio.ejs %>
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+        <% if(err) { %>
+               <p class="error"><%=err%></p>
+        <% } %>
+        <form method="POST" action="/auth/login" id="login-form">
+            <p class="login">Login</p>
+            <p id="login-form-username">Username </p>
+            <p class="login"> <input id="login-text-input" type="text" name="username"> </p> 
+            <p id="login-form-password">Password </p>
+            <p class="login"><input id="login-password-input" type="password" name="password"></p>
+            <input type="submit" id="login-submit-input" value="Login">
+        </form>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>

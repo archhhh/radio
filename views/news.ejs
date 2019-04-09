@@ -1,0 +1,35 @@
+
+<% include header.ejs %> 
+<% include radio.ejs %> 
+<% include schedule.ejs %>  
+<main>
+    <div class="wrapper">
+        <% if(err){%>
+        <p class="error"><%= err%></p>
+        <% } else { %>
+            <% for(let i = 0; i < allNews.length; ++i){%>
+                <article class="news">
+                                <h1><a href="/news/<%=allNews[i].id.toString()%>" class="news-header-link"><%=allNews[i].header%></a></h1>
+                                <h3 class="news-date">
+                                <%
+                                      let newDate = allNews[i].date;
+                                      newDate.setTime(newDate.getTime()+9*60*60*1000);
+                                      newDate = newDate.toDateString().split(" ");
+                                %>
+                                <%=newDate[2]%> <%=newDate[1]%> <%=newDate[3]%>
+                                </h3>
+                                <div class="news-short-description">
+                                    <%-allNews[i].short_description%>
+                                </div>
+                                <img src="<%=allNews[i].thumbnail%>" class="news-thumbnail">
+                                <a href="/news/<%=allNews[i].id.toString()%>" class="news-more" target="_blank">More</a>
+                </article>
+            <% } %>
+        <% } %>
+    </div>
+</main>
+<% include footer.ejs %> 
+<% include chat.ejs %>
+<% include scripts.ejs %> 
+</body>
+</html>
